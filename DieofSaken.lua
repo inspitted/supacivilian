@@ -40,6 +40,42 @@ end
 twitch(b1)
 twitch(b2)
 twitch(b3)
+
+local UserInputService = game:GetService("UserInputService")
+
+local function makeDraggable(button)
+    local dragging = false
+    local dragStart
+    local startPos
+
+    button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = true
+            dragStart = input.Position
+            startPos = button.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    button.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
+            local delta = input.Position - dragStart
+            button.Position = UDim2.new(
+                startPos.X.Scale, startPos.X.Offset + delta.X,
+                startPos.Y.Scale, startPos.Y.Offset + delta.Y
+            )
+        end
+    end)
+end
+
+makeDraggable(b1)
+makeDraggable(b2)
+makeDraggable(b3)
+
 local function trail(part)
 end
 local function setupCharacter(char)
@@ -177,6 +213,6 @@ end)()
 
 StarterGui:SetCore("SendNotification",{
 	Title="Script Loaded";
-	Text="Made by Hecker";
+	Text="Made by Hecker (modified by inspit)";
 	Duration=3;
 })
