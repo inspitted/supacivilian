@@ -9,10 +9,10 @@ local gui = Instance.new("ScreenGui",game.CoreGui)
 
 local function circle(pos,text)
 	local b = Instance.new("TextButton")
-	b.Size = UDim2.fromOffset(90,90)
+	b.Size = UDim2.fromOffset(65,65)
 	b.Position = pos
 	b.AnchorPoint = Vector2.new(0.5,0.5)
-	b.BackgroundColor3 = Color3.fromRGB(255,170,0)
+	b.BackgroundColor3 = Color3.fromRGB(139,69,19)
 	b.Text = text
 	b.TextColor3 = Color3.fromRGB(255,255,255)
 	b.TextScaled = true
