@@ -47,12 +47,12 @@ local function setupCharacter(char)
 	local hrp = char:WaitForChild("HumanoidRootPart")
 
 	local idleAnim = Instance.new("Animation")
-	idleAnim.AnimationId = "rbxassetid://110395159339100"
+	idleAnim.AnimationId = "rbxassetid://116882648985413"
 	local idleTrack = hum:LoadAnimation(idleAnim)
 	idleTrack.Priority = Enum.AnimationPriority.Action
 
 	local runAnim = Instance.new("Animation")
-	runAnim.AnimationId = "rbxassetid://124260679864309"
+	runAnim.AnimationId = "rbxassetid://99710523608673"
 	local runTrack = hum:LoadAnimation(runAnim)
 	runTrack.Priority = Enum.AnimationPriority.Action
 
