@@ -46,44 +46,8 @@ local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local hrp = char:WaitForChild("HumanoidRootPart")
 
-	local animateScript = char:FindFirstChild("Animate")
-if animateScript then
-    animateScript.Disabled = true
-	end
+
 	
-	local Bling_Pursuer = {
-    Idle = "90352838780824",
-    Walk = "137664000771043",
-    Sprint = "118293298340723",
-    Special = "87593869628310"
-}
-
-local idleAnim = Instance.new("Animation")
-idleAnim.AnimationId = "rbxassetid://"..Bling_Pursuer.Idle
-local idleTrack = hum:LoadAnimation(idleAnim)
-
-local runAnim = Instance.new("Animation")
-runAnim.AnimationId = "rbxassetid://"..Bling_Pursuer.Walk
-local runTrack = hum:LoadAnimation(runAnim)
-
-local isSpecial = false
-
-RunService.RenderStepped:Connect(function()
-    if not isSpecial then
-        if hum.MoveDirection.Magnitude > 0.1 then
-            if not runTrack.IsPlaying then
-                idleTrack:Stop()
-                runTrack:Play()
-            end
-        else
-            if not idleTrack.IsPlaying then
-                runTrack:Stop()
-                idleTrack:Play()
-            end
-        end
-    end
-end)
-
 b2.MouseButton1Click:Connect(function()
     isSpecial = true
     play(Bling_Pursuer.Sprint)
