@@ -52,7 +52,7 @@ local function setupCharacter(char)
 	idleTrack.Priority = Enum.AnimationPriority.Action
 
 	local runAnim = Instance.new("Animation")
-	runAnim.AnimationId = "rbxassetid://99710523608673"
+	runAnim.AnimationId = "rbxassetid://116619914860672"
 	local runTrack = hum:LoadAnimation(runAnim)
 	runTrack.Priority = Enum.AnimationPriority.Action
 
