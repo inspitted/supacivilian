@@ -24,9 +24,9 @@ local function circle(pos,text)
 end
 
 local shift = 0.05
-local b1 = circle(UDim2.new(0.300+shift,244,0.400,63),"POW")
-local b2 = circle(UDim2.new(0.300+shift,291,0.400,122),"DASH")
-local b3 = circle(UDim2.new(0.300+shift,181,0.400,118),"SHORT\nDASH")
+local b1 = circle(UDim2.new(0.85,0,0.6,0),"POW")
+local b2 = circle(UDim2.new(0.85,0,0.8,0),"DASH")
+local b3 = circle(UDim2.new(0.85,0,0.7,0),"SHORT\nDASH")
 
 local function twitch(btn)
 	task.spawn(function()
@@ -40,41 +40,6 @@ end
 twitch(b1)
 twitch(b2)
 twitch(b3)
-
-local UserInputService = game:GetService("UserInputService")
-
-local function makeDraggable(button)
-    local dragging = false
-    local dragStart
-    local startPos
-
-    button.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = button.Position
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragging = false
-                end
-            end)
-        end
-    end)
-
-    button.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
-            local delta = input.Position - dragStart
-            button.Position = UDim2.new(
-                startPos.X.Scale, startPos.X.Offset + delta.X,
-                startPos.Y.Scale, startPos.Y.Offset + delta.Y
-            )
-        end
-    end)
-end
-
-makeDraggable(b1)
-makeDraggable(b2)
-makeDraggable(b3)
 
 local function trail(part)
 end
