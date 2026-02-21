@@ -7,26 +7,25 @@ local StarterGui = game:GetService("StarterGui")
 local plr = Players.LocalPlayer
 local gui = Instance.new("ScreenGui",game.CoreGui)
 
-local function circle(pos,text)
-	local b = Instance.new("TextButton")
-	b.Size = UDim2.fromOffset(65,65)
-	b.Position = pos
-	b.AnchorPoint = Vector2.new(1, 0.5)
-	b.BackgroundColor3 = Color3.fromRGB(139,69,19)
-	b.Text = text
-	b.TextColor3 = Color3.fromRGB(255,255,255)
-	b.TextScaled = true
-	b.Font = Enum.Font.GothamBlack
-	b.TextWrapped = true
-	b.Parent = gui
-	Instance.new("UICorner",b).CornerRadius = UDim.new(1,0)
-	return b
+local function circle(pos, text)
+    local b = Instance.new("TextButton")
+    b.Size = UDim2.fromOffset(60, 60)
+    b.Position = pos
+    b.AnchorPoint = Vector2.new(1, 1) 
+    b.BackgroundColor3 = Color3.fromRGB(139, 69, 19)
+    b.Text = text
+    b.TextColor3 = Color3.fromRGB(255, 255, 255)
+    b.TextScaled = true
+    b.Font = Enum.Font.GothamBlack
+    b.Parent = gui
+    Instance.new("UICorner", b).CornerRadius = UDim.new(1, 0)
+    return b
 end
 
-local shift = 0.05
-local b1 = circle(UDim2.new(1, -20, 0.45, 0), "POW") 
-local b3 = circle(UDim2.new(1, -20, 0.55, 0), "SHORT\nDASH")
-local b2 = circle(UDim2.new(1, -20, 0.65, 0), "DASH")        
+local b2 = circle(UDim2.new(1, -10, 1, -100), "DASH")
+local b3 = circle(UDim2.new(1, -10, 1, -170), "SHORT\nDASH")
+local b1 = circle(UDim2.new(1, -10, 1, -240), "POW")
+
 
 local function twitch(btn)
 	task.spawn(function()
