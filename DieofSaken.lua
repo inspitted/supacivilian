@@ -24,9 +24,9 @@ local function circle(pos,text)
 end
 
 local shift = 0.05
-local b1 = circle(UDim2.new(0.300+shift,244,0.400,63),"BLAST")
-local b2 = circle(UDim2.new(0.300+shift,291,0.400,122),"SUPER\nDASH")
-local b3 = circle(UDim2.new(0.300+shift,181,0.400,118),"SUPER\nPUNCH")
+local b1 = circle(UDim2.new(0.300+shift,244,0.400,63),"POW")
+local b2 = circle(UDim2.new(0.300+shift,291,0.400,122),"DASH")
+local b3 = circle(UDim2.new(0.300+shift,181,0.400,118),"SHORT\nDASH")
 
 local function twitch(btn)
 	task.spawn(function()
@@ -40,7 +40,8 @@ end
 twitch(b1)
 twitch(b2)
 twitch(b3)
-
+local function trail(part)
+end
 local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local hrp = char:WaitForChild("HumanoidRootPart")
