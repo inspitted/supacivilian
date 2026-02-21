@@ -24,9 +24,9 @@ local function circle(pos,text)
 end
 
 local shift = 0.05
-local b1 = circle(UDim2.new(0.50,0,0.-50,0),"POW")
-local b2 = circle(UDim2.new(0.50,0,0.50),"DASH")
-local b3 = circle(UDim2.new(0.50,0,0.0,0),"SHORT\nDASH")
+local b1 = circle(UDim2.new(0.300+shift,300,0.400,300),"POW")
+local b2 = circle(UDim2.new(0.300+shift,300,0.400,190),"DASH")
+local b3 = circle(UDim2.new(0.300+shift,300,0.400,267),"SHORT\nDASH")
 
 local function twitch(btn)
 	task.spawn(function()
