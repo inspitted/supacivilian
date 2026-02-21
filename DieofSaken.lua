@@ -11,7 +11,7 @@ local function circle(pos,text)
 	local b = Instance.new("TextButton")
 	b.Size = UDim2.fromOffset(65,65)
 	b.Position = pos
-	b.AnchorPoint = Vector2.new(1,1)
+	b.AnchorPoint = Vector2.new(1, 0.5)
 	b.BackgroundColor3 = Color3.fromRGB(139,69,19)
 	b.Text = text
 	b.TextColor3 = Color3.fromRGB(255,255,255)
@@ -24,9 +24,9 @@ local function circle(pos,text)
 end
 
 local shift = 0.05
-local b1 = circle(UDim2.new(1, -70, 1, -340),"POW")        
-local b3 = circle(UDim2.new(1, -70, 1, -260),"SHORT\nDASH")
-local b2 = circle(UDim2.new(1, -70, 1, -180),"DASH")           
+local b1 = circle(UDim2.new(1, -20, 0.45, 0), "POW") 
+local b3 = circle(UDim2.new(1, -20, 0.55, 0), "SHORT\nDASH")
+local b2 = circle(UDim2.new(1, -20, 0.65, 0), "DASH")        
 
 local function twitch(btn)
 	task.spawn(function()
