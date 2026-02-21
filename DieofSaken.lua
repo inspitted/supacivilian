@@ -46,6 +46,11 @@ local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local hrp = char:WaitForChild("HumanoidRootPart")
 
+	local animateScript = char:FindFirstChild("Animate")
+if animateScript then
+    animateScript.Disabled = true
+	end
+	
 	local Bling_Pursuer = {
     Idle = "90352838780824",
     Walk = "137664000771043",
