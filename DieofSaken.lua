@@ -46,29 +46,46 @@ local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local hrp = char:WaitForChild("HumanoidRootPart")
 
-	local idleAnim = Instance.new("Animation")
-	idleAnim.AnimationId = "rbxassetid://116882648985413"
-	local idleTrack = hum:LoadAnimation(idleAnim)
-	idleTrack.Priority = Enum.AnimationPriority.Action
+	local Bling_Pursuer = {
+    Idle = "90352838780824",
+    Walk = "137664000771043",
+    Sprint = "118293298340723",
+    Special = "87593869628310"
+}
 
-	local runAnim = Instance.new("Animation")
-	runAnim.AnimationId = "rbxassetid://116619914860672"
-	local runTrack = hum:LoadAnimation(runAnim)
-	runTrack.Priority = Enum.AnimationPriority.Action
+local idleAnim = Instance.new("Animation")
+idleAnim.AnimationId = "rbxassetid://"..Bling_Pursuer.Idle
+local idleTrack = hum:LoadAnimation(idleAnim)
 
-	RunService.RenderStepped:Connect(function()
-		if hum.MoveDirection.Magnitude > 0.1 then
-			if not runTrack.IsPlaying then
-				idleTrack:Stop()
-				runTrack:Play()
-			end
-		else
-			if not idleTrack.IsPlaying then
-				runTrack:Stop()
-				idleTrack:Play()
-			end
-		end
-	end)
+local runAnim = Instance.new("Animation")
+runAnim.AnimationId = "rbxassetid://"..Bling_Pursuer.Walk
+local runTrack = hum:LoadAnimation(runAnim)
+
+local isSpecial = false
+
+RunService.RenderStepped:Connect(function()
+    if not isSpecial then
+        if hum.MoveDirection.Magnitude > 0.1 then
+            if not runTrack.IsPlaying then
+                idleTrack:Stop()
+                runTrack:Play()
+            end
+        else
+            if not idleTrack.IsPlaying then
+                runTrack:Stop()
+                idleTrack:Play()
+            end
+        end
+    end
+end)
+
+b2.MouseButton1Click:Connect(function()
+    isSpecial = true
+    play(Bling_Pursuer.Sprint)
+    dash(30)
+    task.wait(0.5)
+    isSpecial = false
+end)
 
 	
 
