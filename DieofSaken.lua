@@ -46,17 +46,6 @@ end
 local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local hrp = char:WaitForChild("HumanoidRootPart")
-
-
-	
-b2.MouseButton1Click:Connect(function()
-    isSpecial = true
-    play(Bling_Pursuer.Sprint)
-    dash(30)
-    task.wait(0.5)
-    isSpecial = false
-end)
-
 	
 
 	local function attachToKiller(killer)
